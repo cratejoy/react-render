@@ -3,6 +3,7 @@ var assert = require('chai').assert;
 var Component = require('../lib/Component');
 
 var Hello = path.join(__dirname, 'test_components', 'Hello.js');
+var HelloStyles = path.join(__dirname, 'test_components', 'HelloStyles.js');
 var ErrorThrowingComponent = path.join(__dirname, 'test_components', 'ErrorThrowingComponent.js');
 var SyntaxErrorComponent = path.join(__dirname, 'test_components', 'SyntaxErrorComponent.js');
 
@@ -66,6 +67,25 @@ describe('Component', function() {
       name: 'World'
     }, function(err, markup) {
       assert.isNull(err);
+      assert.include(markup, '<div');
+      assert.include(markup, '>Hello ');
+      assert.include(markup, '>World');
+      assert.include(markup, '</div>');
+      done();
+    });
+  });
+  it('can render a component to a string with styles', function(done) {
+    var component = new Component({
+      path: HelloStyles
+    });
+
+    component.renderToString({
+      name: 'World'
+    }, function(err, markup) {
+      assert.isNull(err);
+      assert.include(markup, '<style');
+      assert.include(markup, 'color:darkslategray;');
+      assert.include(markup, '</style>');
       assert.include(markup, '<div');
       assert.include(markup, '>Hello ');
       assert.include(markup, '>World');
