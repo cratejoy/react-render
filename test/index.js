@@ -110,7 +110,6 @@ describe('reactRender', function() {
     assert.instanceOf(reactRender._components._cache[0], Component);
     assert.equal(reactRender._components._cache[0].component, Hello);
 
-
     reactRender({path: 'foo'}, function() {});
     assert.equal(reactRender._components._cache.length, 2);
     assert.instanceOf(reactRender._components._cache[1], Component);
