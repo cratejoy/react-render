@@ -110,35 +110,35 @@ describe('reactRender', function() {
     assert.instanceOf(reactRender._components._cache[0], Component);
     assert.equal(reactRender._components._cache[0].component, Hello);
 
-    // reactRender({path: 'foo'}, function() {});
-    // assert.equal(reactRender._components._cache.length, 2);
-    // assert.instanceOf(reactRender._components._cache[1], Component);
-    // assert.equal(reactRender._components._cache[1].opts.path, 'foo');
-    //
-    // reactRender({path: 'foo'}, function() {});
-    // assert.equal(reactRender._components._cache.length, 2);
-    // assert.instanceOf(reactRender._components._cache[1], Component);
-    // assert.equal(reactRender._components._cache[1].opts.path, 'foo');
-    //
-    // reactRender({path: 'foo', props: {bar: 1}}, function() {});
-    // assert.equal(reactRender._components._cache.length, 2);
-    // assert.instanceOf(reactRender._components._cache[1], Component);
-    // assert.equal(reactRender._components._cache[1].opts.path, 'foo');
-    //
-    // reactRender({path: 'bar', serializedProps: {bar: 1}}, function() {});
-    // assert.equal(reactRender._components._cache.length, 3);
-    // assert.instanceOf(reactRender._components._cache[2], Component);
-    // assert.equal(reactRender._components._cache[2].opts.path, 'bar');
-    //
-    // reactRender({path: 'foo', serializedProps: '{"bar": 1}'}, function() {});
-    // assert.equal(reactRender._components._cache.length, 3);
-    // assert.instanceOf(reactRender._components._cache[1], Component);
-    // assert.equal(reactRender._components._cache[1].opts.path, 'foo');
-    //
-    // reactRender({path: 'bar', serializedProps: '{"bar": 1}'}, function() {});
-    // assert.equal(reactRender._components._cache.length, 3);
-    // assert.instanceOf(reactRender._components._cache[2], Component);
-    // assert.equal(reactRender._components._cache[2].opts.path, 'bar');
+    reactRender({path: 'foo'}, function() {});
+    assert.equal(reactRender._components._cache.length, 2);
+    assert.instanceOf(reactRender._components._cache[1], Component);
+    assert.equal(reactRender._components._cache[1].opts.path, 'foo');
+
+    reactRender({path: 'foo'}, function() {});
+    assert.equal(reactRender._components._cache.length, 2);
+    assert.instanceOf(reactRender._components._cache[1], Component);
+    assert.equal(reactRender._components._cache[1].opts.path, 'foo');
+
+    reactRender({path: 'foo', props: {bar: 1}}, function() {});
+    assert.equal(reactRender._components._cache.length, 2);
+    assert.instanceOf(reactRender._components._cache[1], Component);
+    assert.equal(reactRender._components._cache[1].opts.path, 'foo');
+
+    reactRender({path: 'bar', serializedProps: {bar: 1}}, function() {});
+    assert.equal(reactRender._components._cache.length, 3);
+    assert.instanceOf(reactRender._components._cache[2], Component);
+    assert.equal(reactRender._components._cache[2].opts.path, 'bar');
+
+    reactRender({path: 'foo', serializedProps: '{"bar": 1}'}, function() {});
+    assert.equal(reactRender._components._cache.length, 3);
+    assert.instanceOf(reactRender._components._cache[1], Component);
+    assert.equal(reactRender._components._cache[1].opts.path, 'foo');
+
+    reactRender({path: 'bar', serializedProps: '{"bar": 1}'}, function() {});
+    assert.equal(reactRender._components._cache.length, 3);
+    assert.instanceOf(reactRender._components._cache[2], Component);
+    assert.equal(reactRender._components._cache[2].opts.path, 'bar');
   });
   it('passes up errors thrown during a component\'s rendering', function(done) {
     reactRender({
